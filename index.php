@@ -2,16 +2,57 @@
 
 require_once 'Usuario.php';
 
+function menuPrincipal() {
+    echo "\n=== MENÚ PRINCIPAL ===\n";
+    echo "1. Crear usuario\n";
+    echo "2. Salir\n";
+    echo "Seleccione una opción: ";
+}
+
 $usuario = new Usuario();
 
-$usuario->primer_nombre = "NICOLÁS";
-$usuario->segundo_nombre = "ANTONIO";
-$usuario->primer_apellido = "ARRIETA";
-$usuario->segundo_apellido = "LAGOS";
-$usuario->n_documento = "1099735735";
-$usuario->fecha_nacimiento = "2000-10-29";
-$usuario->telefono = "3165041963";
-$usuario->correo_electronico = "NICOLAS@GMAIL.COM";
-$usuario->direccion = "CALLE 1 # 2-3";
+while (true) {
+    menuPrincipal();
+    $option = trim(fgets(STDIN));
 
-$usuario->crearUsuario();
+    switch ($option) {
+        case 1:
+            echo "Ingrese primer nombre: ";
+            $usuario->primer_nombre = trim(fgets(STDIN));
+
+            echo "Ingrese segundo nombre: ";
+            $usuario->segundo_nombre = trim(fgets(STDIN));
+
+            echo "Ingrese primer apellido: ";
+            $usuario->primer_apellido = trim(fgets(STDIN));
+
+            echo "Ingrese segundo apellido: ";
+            $usuario->segundo_apellido = trim(fgets(STDIN));
+
+            echo "Ingrese número de documento: ";
+            $usuario->n_documento = trim(fgets(STDIN));
+
+            echo "Ingrese fecha de nacimiento (YYYY-MM-DD): ";
+            $usuario->fecha_nacimiento = trim(fgets(STDIN));
+
+            echo "Ingrese teléfono: ";
+            $usuario->telefono = trim(fgets(STDIN));
+
+            echo "Ingrese correo electrónico: ";
+            $usuario->correo_electronico = trim(fgets(STDIN));
+
+            echo "Ingrese dirección: ";
+            $usuario->direccion = trim(fgets(STDIN));
+
+            $usuario->crearUsuario();
+            echo "Usuario creado con éxito.\n";
+            break;
+            
+        case 2:
+            echo "Saliendo...\n";
+            exit;
+
+        default:
+            echo "Opción no válida. Intente de nuevo.\n"; 
+    }
+}
