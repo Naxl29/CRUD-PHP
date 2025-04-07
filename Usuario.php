@@ -25,7 +25,7 @@ class Usuario
     {
         // Lógica para obtener todos los usuarios
 
-
+        
         $querry = "SELECT * FROM usuarios";
         $stmt = $this->conn->prepare($querry);
         $stmt->execute();
