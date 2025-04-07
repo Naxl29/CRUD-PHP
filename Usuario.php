@@ -25,7 +25,7 @@ class Usuario
     {
         // Lógica para obtener todos los usuarios
 
-        
+
         $querry = "SELECT * FROM usuarios";
         $stmt = $this->conn->prepare($querry);
         $stmt->execute();
@@ -38,11 +38,18 @@ class Usuario
     public function obtenerUsuario($id)
     {
         // Lógica para obtener un usuario por ID
+        $querry = "SELECT * FROM usuarios WHERE id = :id";
+        $stmt =$this ->conn->prepare($querry);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function crearUsuario()
     {
         // Lógica para insertar usuario
+       
     }
 
     public function actualizarUsuario()
