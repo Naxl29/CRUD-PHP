@@ -6,7 +6,7 @@ class Database
     private string $db = 'usuarios_app';
     private string $user = 'root';
     private string $pass = '';
-    private PDO $conexion;
+    public PDO $conexion;
 
     public function getConnection(): PDO
     {
