@@ -5,7 +5,8 @@ require_once 'Usuario.php';
 function menuPrincipal() {
     echo "\n=== MENÚ PRINCIPAL ===\n";
     echo "1. Crear usuario\n";
-    echo "2. Salir\n";
+    echo "2. Actualizar usuario\n";
+    echo "3. Salir\n";
     echo "Seleccione una opción: ";
 }
 
@@ -47,8 +48,39 @@ while (true) {
             $usuario->crearUsuario();
             echo "Usuario creado con éxito.\n";
             break;
-            
+        
         case 2:
+            echo "Ingrese número de documento del usuario a actualizar: ";
+            $usuario->n_documento = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo primer nombre: ";
+            $usuario->primer_nombre = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo segundo nombre: ";
+            $usuario->segundo_nombre = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo primer apellido: ";
+            $usuario->primer_apellido = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo segundo apellido: ";
+            $usuario->segundo_apellido = trim(fgets(STDIN));
+
+            echo "Ingrese nueva fecha de nacimiento (YYYY-MM-DD): ";
+            $usuario->fecha_nacimiento = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo teléfono: ";
+            $usuario->telefono = trim(fgets(STDIN));
+
+            echo "Ingrese nuevo correo electrónico: ";
+            $usuario->correo_electronico = trim(fgets(STDIN));
+
+            echo "Ingrese nueva dirección: ";
+            $usuario->direccion = trim(fgets(STDIN));
+
+            $usuario->actualizarUsuario();
+            echo "Usuario actualizado con éxito.\n";
+            break;
+        case 3:
             echo "Saliendo...\n";
             exit;
 
